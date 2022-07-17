@@ -1,9 +1,13 @@
 using MovieTracker.Api.Swagger;
 using MovieTracker.Application;
+using MovieTracker.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddApplication();
+    builder.Services
+        .AddApplication()
+        .AddInfrastructure();
+
     builder.Services.AddControllers();
     builder.Services.AddSwagger();
 }
