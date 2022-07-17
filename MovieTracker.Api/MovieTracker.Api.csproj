@@ -8,16 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MovieTracker.Contracts\MovieTracker.Contracts.csproj" />
     <ProjectReference Include="..\MovieTracker.Application\MovieTracker.Application.csproj" />
     <ProjectReference Include="..\MovieTracker.Infrastructure\MovieTracker.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
