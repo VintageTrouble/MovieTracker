@@ -1,25 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTracker.Api", "MovieTracker.Api\MovieTracker.Api.csproj", "{656E778D-21B3-43F0-974A-8A9EB4F84DDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTracker.Api", "MovieTracker.Api\MovieTracker.Api.csproj", "{656E778D-21B3-43F0-974A-8A9EB4F84DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTracker.Application", "MovieTracker.Application\MovieTracker.Application.csproj", "{1FEF70A6-88D8-46E2-B1A4-B87C98A17906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTracker.Application", "MovieTracker.Application\MovieTracker.Application.csproj", "{1FEF70A6-88D8-46E2-B1A4-B87C98A17906}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTracker.Contracts", "MovieTracker.Contracts\MovieTracker.Contracts.csproj", "{D9FA511E-F010-43E0-AB5A-CCC453EFCEE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTracker.Contracts", "MovieTracker.Contracts\MovieTracker.Contracts.csproj", "{D9FA511E-F010-43E0-AB5A-CCC453EFCEE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTracker.Domain", "MovieTracker.Domain\MovieTracker.Domain.csproj", "{9C83E56A-E0D3-4DB6-987D-904484992DDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTracker.Domain", "MovieTracker.Domain\MovieTracker.Domain.csproj", "{9C83E56A-E0D3-4DB6-987D-904484992DDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTracker.Infrastructure", "MovieTracker.Infrastructure\MovieTracker.Infrastructure.csproj", "{F347ACD0-8137-40B9-AE8B-A3F36BEA515B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTracker.Infrastructure", "MovieTracker.Infrastructure\MovieTracker.Infrastructure.csproj", "{F347ACD0-8137-40B9-AE8B-A3F36BEA515B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0261C95B-3C90-440E-8320-FA7B1ED48844}"
+	ProjectSection(SolutionItems) = preProject
+		Api.md = Api.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{656E778D-21B3-43F0-974A-8A9EB4F84DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +44,11 @@ Global
 		{F347ACD0-8137-40B9-AE8B-A3F36BEA515B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F347ACD0-8137-40B9-AE8B-A3F36BEA515B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F347ACD0-8137-40B9-AE8B-A3F36BEA515B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7936B325-BC00-4F92-BF2C-1CC67A36C0D9}
 	EndGlobalSection
 EndGlobal
