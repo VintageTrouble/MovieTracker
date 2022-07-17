@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0261C95B-3C90-440E-8320-FA7B1ED48844}"
 	ProjectSection(SolutionItems) = preProject
 		Api.md = Api.md
+		DomainModels.md = DomainModels.md
 	EndProjectSection
 EndProject
 Global
