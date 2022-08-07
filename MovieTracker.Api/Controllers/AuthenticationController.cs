@@ -8,6 +8,7 @@ using MovieTracker.Api.Controllers.Abstract;
 using MovieTracker.Application.Authentication.Commands.Register;
 using MovieTracker.Application.Authentication.Common;
 using MovieTracker.Application.Authentication.Queries;
+using MovieTracker.Application.Authentication.Queries.Login;
 using MovieTracker.Contracts.Authentication;
 
 namespace MovieTracker.Api.Controllers;

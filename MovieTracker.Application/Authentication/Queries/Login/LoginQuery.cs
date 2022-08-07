@@ -2,7 +2,7 @@
 
 using MovieTracker.Application.Authentication.Common;
 
-namespace MovieTracker.Application.Authentication.Queries;
+namespace MovieTracker.Application.Authentication.Queries.Login;
 
 public record LoginQuery(
     string Email,

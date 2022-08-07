@@ -6,7 +6,7 @@ using MovieTracker.Application.Common.Interfaces.Authentication;
 using MovieTracker.Application.Common.Interfaces.Persistence;
 using MovieTracker.Domain.Entities;
 
-namespace MovieTracker.Application.Authentication.Queries;
+namespace MovieTracker.Application.Authentication.Queries.Login;
 
 public class LoginQueryHandler : IRequestHandler<LoginQuery, AuthenticationResult>
 {
@@ -21,6 +21,8 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, AuthenticationResul
 
     public async Task<AuthenticationResult> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
+
         if (_userRepository.GetByEmail(query.Email) is not User user)
             throw new EmailDoesNotExistException("User with given email does not exist.");
 
