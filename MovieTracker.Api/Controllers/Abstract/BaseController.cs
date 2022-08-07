@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using MapsterMapper;
+
+using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,19 +10,21 @@ namespace MovieTracker.Api.Controllers.Abstract;
 public class BaseController : ControllerBase
 {
     private readonly ISender _mediator;
+    private readonly IMapper _mapper;
 
-    public BaseController(ISender mediator)
+    public BaseController(ISender mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
-    protected async Task<TResponse> HandleRequest<TRequest, TResponse>(
-        IRequest<TRequest> action, 
-        Func<TRequest, TResponse> hadler)
+    protected async Task<TResponse?> HandleRequest<TRequest, TResponse>(IRequest<TRequest> action) 
+        where TResponse : class
     {
         var authResult = await _mediator.Send(action);
-        var response = hadler(authResult);
 
-        return response;
+        return authResult is not null
+            ? _mapper.Map<TResponse>(authResult)
+            : null;
     }
 }
