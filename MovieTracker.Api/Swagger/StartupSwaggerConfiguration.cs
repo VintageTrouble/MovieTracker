@@ -8,10 +8,14 @@ public static class StartupSwaggerConfiguration
     {
         services.AddEndpointsApiExplorer();
 
-        services.AddSwaggerGen(c =>
-        {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Movie Tracker", Version = "v1" });
-        });
+        services.AddSwaggerGen(c 
+            => c.SwaggerDoc(
+                "v1",
+                new OpenApiInfo 
+                { 
+                    Title = "Movie Tracker", 
+                    Version = "v1" 
+                }));
     }
 
     public static void ConfigueSwagger(this WebApplication app)
