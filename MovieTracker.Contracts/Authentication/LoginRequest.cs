@@ -1,5 +1,7 @@
-﻿namespace MovieTracker.Contracts.Authentication;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MovieTracker.Contracts.Authentication;
 
 public record LoginRequest(
-    string Email,
-    string Password);
+    [Required] string Email,
+    [Required] string Password);

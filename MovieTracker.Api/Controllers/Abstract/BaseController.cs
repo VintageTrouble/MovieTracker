@@ -1,12 +1,14 @@
 ﻿using MapsterMapper;
-
 using MediatR;
-
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace MovieTracker.Api.Controllers.Abstract;
 
 [ApiController]
+[Produces("application/json")]
+[ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.BadRequest)]
+[ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
 public class BaseController : ControllerBase
 {
     private readonly ISender _mediator;
