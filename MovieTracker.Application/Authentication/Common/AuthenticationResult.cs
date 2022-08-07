@@ -1,6 +1,6 @@
 ﻿using MovieTracker.Domain.Entities;
 
-namespace MovieTracker.Application.Services.Authentication;
+namespace MovieTracker.Application.Authentication.Common;
 
 public record AuthenticationResult(
     User User,
