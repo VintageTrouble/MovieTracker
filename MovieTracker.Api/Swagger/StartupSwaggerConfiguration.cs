@@ -1,5 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 
+using System.Reflection;
+
 namespace MovieTracker.Api.Swagger;
 
 public static class StartupSwaggerConfiguration
@@ -8,14 +10,17 @@ public static class StartupSwaggerConfiguration
     {
         services.AddEndpointsApiExplorer();
 
-        services.AddSwaggerGen(c 
-            => c.SwaggerDoc(
-                "v1",
-                new OpenApiInfo 
-                { 
-                    Title = "Movie Tracker", 
-                    Version = "v1" 
-                }));
+        services.AddSwaggerGen(
+            c =>
+            {
+                c.SwaggerDoc(
+                    "v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Movie Tracker",
+                        Version = "v1"
+                    });
+            });
     }
 
     public static void ConfigueSwagger(this WebApplication app)
@@ -23,11 +28,10 @@ public static class StartupSwaggerConfiguration
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger"; // serve the UI at root 	
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
         }
     }
