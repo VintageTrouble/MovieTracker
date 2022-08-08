@@ -1,6 +1,12 @@
-﻿using MapsterMapper;
+﻿using FluentValidation;
+
+using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+using MovieTracker.Contracts.Authentication;
+
 using System.Net;
 
 namespace MovieTracker.Api.Controllers.Abstract;
@@ -28,5 +34,26 @@ public class BaseController : ControllerBase
         return authResult is not null
             ? _mapper.Map<TResponse>(authResult)
             : null;
+    }
+
+    protected virtual IActionResult? ValidateRequest<T>(IValidator<T> validator, T request)
+    {
+        var validationResult = validator.Validate(request);
+
+        if (!validationResult.IsValid)
+        {
+            var modelStateDictionary = new ModelStateDictionary();
+
+            foreach (var failure in validationResult.Errors)
+            {
+                modelStateDictionary.AddModelError(
+                    failure.PropertyName,
+                    failure.ErrorMessage);
+            }
+
+            return ValidationProblem(modelStateDictionary);
+        }
+
+        return null;
     }
 }

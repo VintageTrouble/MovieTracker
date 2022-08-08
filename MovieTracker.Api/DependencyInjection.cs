@@ -2,6 +2,7 @@
 using MovieTracker.Api.Common.Errors;
 using MovieTracker.Api.Common.Mapping;
 using MovieTracker.Api.Swagger;
+using MovieTracker.Api.Validations;
 
 namespace MovieTracker.Api;
 
@@ -12,6 +13,7 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddSwagger();
         services.AddMappings();
+        services.AddValidations();
 
         services.AddSingleton<ProblemDetailsFactory, MovieTrackerProblemDetailsFactory>();
 
