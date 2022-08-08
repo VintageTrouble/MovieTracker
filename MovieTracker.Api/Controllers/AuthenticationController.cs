@@ -28,13 +28,8 @@ public class AuthenticationController : BaseController
     [HttpPost("register")]
     [ProducesResponseType(typeof(AuthenticationResponse), (int)HttpStatusCode.Created)]
     [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.Conflict)]
-    public async Task<IActionResult> Register(RegisterRequest request, [FromServices] IValidator<RegisterRequest> validator)
+    public async Task<IActionResult> Register(RegisterRequest request)
     {
-        var validationResult = ValidateRequest(validator, request);
-
-        if (validationResult is not null)
-            return validationResult;
-
         var respones = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
             _mapper.Map<RegisterCommand>(request));
 
@@ -43,13 +38,8 @@ public class AuthenticationController : BaseController
 
     [HttpPost("login")]
     [ProducesResponseType(typeof(AuthenticationResponse), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> Login(LoginRequest request, [FromServices] IValidator<LoginRequest> validator)
+    public async Task<IActionResult> Login(LoginRequest request)
     {
-        var validationResult = ValidateRequest(validator, request);
-
-        if (validationResult is not null)
-            return validationResult;
-
         var respones = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
             _mapper.Map<LoginQuery>(request));
 

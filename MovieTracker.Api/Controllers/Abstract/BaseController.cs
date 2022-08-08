@@ -35,25 +35,4 @@ public class BaseController : ControllerBase
             ? _mapper.Map<TResponse>(authResult)
             : null;
     }
-
-    protected virtual IActionResult? ValidateRequest<T>(IValidator<T> validator, T request)
-    {
-        var validationResult = validator.Validate(request);
-
-        if (!validationResult.IsValid)
-        {
-            var modelStateDictionary = new ModelStateDictionary();
-
-            foreach (var failure in validationResult.Errors)
-            {
-                modelStateDictionary.AddModelError(
-                    failure.PropertyName,
-                    failure.ErrorMessage);
-            }
-
-            return ValidationProblem(modelStateDictionary);
-        }
-
-        return null;
-    }
 }
