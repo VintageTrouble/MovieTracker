@@ -1,7 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
 
-using System.Reflection;
-
 namespace MovieTracker.Api.Swagger;
 
 public static class StartupSwaggerConfiguration

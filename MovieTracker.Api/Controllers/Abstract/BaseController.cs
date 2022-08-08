@@ -1,11 +1,8 @@
-﻿using FluentValidation;
+﻿using MapsterMapper;
 
-using MapsterMapper;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-using MovieTracker.Contracts.Authentication;
+using Microsoft.AspNetCore.Mvc;
 
 using System.Net;
 

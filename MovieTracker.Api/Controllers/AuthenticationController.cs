@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-using MapsterMapper;
+﻿using MapsterMapper;
 
 using MediatR;
 
@@ -12,7 +10,6 @@ using MovieTracker.Application.Authentication.Common;
 using MovieTracker.Application.Authentication.Queries.Login;
 using MovieTracker.Contracts.Authentication;
 
-using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace MovieTracker.Api.Controllers;
