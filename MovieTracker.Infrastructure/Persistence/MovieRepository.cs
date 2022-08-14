@@ -7,5 +7,6 @@ public class MovieRepository : IMovieRepository
 {
     private static readonly List<Movie> _movies = new();
 
-    public Movie? GetMovie(Guid id) => _movies.FirstOrDefault(x => x.Id == id);
+    public void Add(Movie movie) => _movies.Add(movie);
+    public Movie? Get(Guid id) => _movies.FirstOrDefault(x => x.Id == id);
 }
