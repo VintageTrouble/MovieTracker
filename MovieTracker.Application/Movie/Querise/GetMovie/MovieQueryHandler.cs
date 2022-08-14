@@ -19,7 +19,7 @@ public class MovieQueryHandler : IRequestHandler<MovieQuery, MovieResult>
     {
         await Task.CompletedTask;
 
-        if (_movieRepository.GetMovie(request.Id) is not Domain.Entities.Movie movie)
+        if (_movieRepository.Get(request.Id) is not Domain.Entities.Movie movie)
             throw new MovieNotFoundException($"Can't find movie with id [{request.Id}].");
 
         return new MovieResult(movie);

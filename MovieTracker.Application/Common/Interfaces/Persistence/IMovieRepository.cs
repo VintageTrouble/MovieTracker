@@ -2,5 +2,6 @@
 
 public interface IMovieRepository
 {
-    Domain.Entities.Movie? GetMovie(Guid id);
+    Domain.Entities.Movie? Get(Guid id);
+    void Add(Domain.Entities.Movie movie);
 }
