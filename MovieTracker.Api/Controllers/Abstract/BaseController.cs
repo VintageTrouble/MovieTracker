@@ -15,7 +15,7 @@ namespace MovieTracker.Api.Controllers.Abstract;
 public class BaseController : ControllerBase
 {
     private readonly ISender _mediator;
-    private readonly IMapper _mapper;
+    protected readonly IMapper _mapper;
 
     public BaseController(ISender mediator, IMapper mapper)
     {

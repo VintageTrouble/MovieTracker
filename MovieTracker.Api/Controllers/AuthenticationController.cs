@@ -17,30 +17,28 @@ namespace MovieTracker.Api.Controllers;
 [Route("api/auth")]
 public class AuthenticationController : BaseController
 {
-    private readonly IMapper _mapper;
-
     public AuthenticationController(ISender mediator, IMapper mapper)
-        : base(mediator, mapper) => _mapper = mapper;
+        : base(mediator, mapper) { }
 
     [HttpPost("register")]
     [ProducesResponseType(typeof(AuthenticationResponse), (int)HttpStatusCode.Created)]
     [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.Conflict)]
     public async Task<IActionResult> Register(RegisterRequest request)
     {
-        var respones = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
+        var response = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
             _mapper.Map<RegisterCommand>(request));
 
-        return StatusCode((int)HttpStatusCode.Created, respones);
+        return StatusCode((int)HttpStatusCode.Created, response);
     }
 
     [HttpPost("login")]
     [ProducesResponseType(typeof(AuthenticationResponse), (int)HttpStatusCode.OK)]
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        var respones = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
+        var response = await HandleRequest<AuthenticationResult, AuthenticationResponse>(
             _mapper.Map<LoginQuery>(request));
 
-        return StatusCode((int)HttpStatusCode.OK, respones);
+        return StatusCode((int)HttpStatusCode.OK, response);
     }
 }
 
