@@ -2,6 +2,7 @@
 
 using MovieTracker.Application.Authentication.Common;
 using MovieTracker.Application.Common.Exceptions;
+using MovieTracker.Application.Common.Exceptions.Authentication;
 using MovieTracker.Application.Common.Interfaces.Authentication;
 using MovieTracker.Application.Common.Interfaces.Persistence;
 using MovieTracker.Domain.Entities;
@@ -24,10 +25,10 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, AuthenticationResul
         await Task.CompletedTask;
 
         if (_userRepository.GetByEmail(query.Email) is not User user)
-            throw new EmailDoesNotExistException("User with given email does not exist.");
+            throw new InvalidCredentialsException();
 
         if (query.Password != user.Password)
-            throw new InvalidPasswordException("Invalid password.");
+            throw new InvalidCredentialsException();
 
         var token = _jwtTokenGenerator.GenerateToken(user);
 
